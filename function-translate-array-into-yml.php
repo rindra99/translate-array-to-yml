@@ -12,7 +12,7 @@ function translateArray(array $array, $tab = "&nbsp;&nbsp;&nbsp;&nbsp;")
         if (is_array($value)) {
             $str .= str_repeat($tab, $depth) . lcfirst(str_replace(' ', '', ucwords($key))) . ": <br>";
             $depth++;
-            $str .= $this->translateArray($value, $tab);
+            $str .= translateArray($value, $tab);
             $depth--;
         } else {
             $value = addcslashes($value, '"');
