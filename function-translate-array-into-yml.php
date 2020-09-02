@@ -1,18 +1,18 @@
 <?php 
 /**
  * @param array $array
- * @param string $tab
+ * @param string $tab 4 spaces by default
  * @return string
  */
-function translateArray(array $array, $tab = "")
+function translateArray(array $array, $tab = "&nbsp;&nbsp;&nbsp;&nbsp;")
 {
     static $depth = 0;
     $str = "";
     foreach ($array as $key => $value) {
         if (is_array($value)) {
+            $str .= str_repeat($tab, $depth) . lcfirst(str_replace(' ', '', ucwords($key))) . ": <br>";
             $depth++;
-            $str .= str_repeat($tab, $depth) . "$key: <br>";
-            $str .= $this->translateArray($value, '&nbsp;&nbsp;&nbsp;&nbsp;');
+            $str .= $this->translateArray($value, $tab);
             $depth--;
         } else {
             $value = addcslashes($value, '"');
