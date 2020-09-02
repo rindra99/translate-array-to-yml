@@ -19,7 +19,7 @@ class YmlUtilsService{
                 $depth--;
             } else {
                 $value = addcslashes($value, '"');
-                $str .= str_repeat($tab, $depth) . lcfirst(htmlspecialchars(str_replace(' ', '', ucwords($key)) . ': "' . $value) . '"' . PHP_EOL);
+                $str .= str_repeat($tab, $depth) . lcfirst(str_replace(' ', '', ucwords($key)) . ': "' . $value . '"' . PHP_EOL);
             }
         }
         return $str;    
