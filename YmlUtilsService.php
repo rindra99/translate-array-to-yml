@@ -15,7 +15,7 @@ class YmlUtilsService{
             if (is_array($value)) {
                 $str .= str_repeat($tab, $depth) . lcfirst(str_replace(' ', '', ucwords($key))) . ": " . PHP_EOL;
                 $depth++;
-                $str .= translateArray($value, $tab);
+                $str .= self::translateArray($value, $tab);
                 $depth--;
             } else {
                 $value = addcslashes($value, '"');
